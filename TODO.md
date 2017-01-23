@@ -1,18 +1,35 @@
 Plan
 ====
 
-1) Introduction, Outillage, Setup
+1) Introduction
+	Historique
+	Positionnement / vs autres fwk
 
-2) Ecrire du html avec jsx
+2) Outillage, Setup
+	outils: éditeur: "Code", chrome + devtools, npm 6+, une console
+	build
+	create-react-app
 
-3) Comprendre les composants React
+3) Les composants React
+	composant fonctionnel
 
-4) Initialiser un composant avec "props"
-4 bis) Typer un composant avec "propTypes"
+4) Hello world
 
-5) Composition (Créer un composant à partir d'autres composants)
+5) Ecrire du html avec jsx
+	render
+	syntax
+		variable
+		attributs
+		condition
+		boucles
+	css
 
-6) Composant fonctionnel
+6) Initialiser un composant avec "props"
+6 bis) Typer un composant avec "propTypes"
+
+7) Composition (Créer un composant à partir d'autres composants)
+
+
 
 
 
