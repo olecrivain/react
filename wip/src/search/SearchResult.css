@@ -1,0 +1,8 @@
+.SearchResult {
+    padding: 1em;
+    border-bottom: 1px solid #aaa;
+}
+
+.SearchResult h3 {
+    margin-top: 0;
+}

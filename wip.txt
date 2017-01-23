@@ -1,0 +1,5 @@
+create-react-app <project>
+
+todo : react router
+
+test avec jest ?
