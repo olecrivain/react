@@ -1,0 +1,11 @@
+{
+  "name": "formation",
+  "version": "0.0.0",
+  "scripts": {
+    "lint": "eslint plus_ou_moins.js"
+  },
+  "repository": {},
+  "devDependencies": {
+    "eslint": "^2.3.0"
+  }
+}

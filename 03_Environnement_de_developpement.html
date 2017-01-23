@@ -1,0 +1,190 @@
+
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>Environnement de développement</title>
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+    <link rel="stylesheet" href="reveal.js/css/reveal.css">
+    <link rel="stylesheet" href="reveal.js/css/theme/black.css" id="theme">
+
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="reveal.js/lib/css/zenburn.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'reveal.js/css/print/pdf.css' : 'reveal.js/css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="reveal">
+
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+        <section>
+          <h1>Environnement de développement</h1>
+        </section>
+
+        <section>
+          <h2>Node</h2>
+          <p>
+            Node est un interpréteur JavaScript (<a href="https://nodejs.org">https://nodejs.org</a>).
+            Il est utilisé pour exécuter du code JavaScript en dehors d'un navigateur.
+          </p>
+          <pre><code class="hljs" data-trim>
+$ node script.js
+          </code></pre>
+        </section>
+
+        <section>
+          <h2>NPM (Node Package Manager)</h2>
+          <p>
+            Fourni avec Node. Il permet de :
+            <ul>
+              <li>Installer des outils exécutés par Node (ex : Grunt, eslint...)</li>
+              <li>Installer les dépendences d'un projet Node</li>
+              <li>Exécuter des scripts dans un projet Node</li>
+            </ul>
+          </p>
+        </section>
+
+        <section>
+          <h2>Editeurs</h2>
+          <p>
+            <ul>
+              <li>WebStorm : <a href="https://www.jetbrains.com/webstorm/">https://www.jetbrains.com/webstorm</a></li>
+              <li>Bracket : <a href="http://brackets.io/">http://brackets.io</a></li>
+              <li>Code : <a href="https://code.visualstudio.com/">https://code.visualstudio.com</a></li>
+              <li>Sublime Text : <a href="https://www.sublimetext.com/">https://www.sublimetext.com</a></li>
+              <li>Atom.io : <a href="https://atom.io/">https://atom.io</a></li>
+            </ul>
+          </p>
+        </section>
+
+        <section>
+          <h2>Linter JS</h2>
+          <p>
+            Ils permettent :
+            <ul>
+              <li>d'identifier des patterns de code dangereux</li>
+              <li>d'eviter certaines typos</li>
+              <li>de rendre le code plus consistent (dans le cas d'eslint)</li>
+            </ul>
+          </p>
+        </section>
+
+        <section>
+          <h2>Linter JS - Plusieurs solutions</h2>
+          <p>
+            <ul>
+              <li>ESLint : le plus récent (celui qu'il faut utiliser)</li>
+              <li>JSLint</li>
+              <li>JSHint : le premier</li>
+            </ul>
+          </p>
+        </section>
+
+        <section>
+          <h2>ESLint</h2>
+          <p>
+            Installation globale :
+          </p>
+          <pre><code class="hljs" data-trim>
+$ npm install -g eslint
+$ eslint plus_ou_moins.js
+          </code></pre>
+          <p>
+            Installation locale :
+          </p>
+          <pre><code class="hljs" data-trim>
+$ npm install eslint --save
+$ npm run lint
+          </code></pre>
+          <p>
+            Le fichier <code>.eslintrc.js</code> à la racine du projet permet de configurer ESLint.
+          </p>
+        </section>
+
+        <section>
+          <h2>Exemple de fichier .eslintrc.js</h2>
+          <pre><code class="hljs" data-trim>
+module.exports = {
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "extends": "eslint:recommended",
+  "rules": {
+    "indent": [ "error", 2 ],
+    "quotes": [ "error", "single" ],
+    "semi": [ "error", "always" ],
+    "no-console": 0
+  }
+};
+          </code></pre>
+          <p>
+            Liste des règles disponibles : <a href="http://eslint.org/docs/rules/">http://eslint.org/docs/rules/</a>.
+          </p>
+        </section>
+
+        <section>
+          <h2>ESLint &amp; Atom.io</h2>
+          <p>
+            Les retours d'ESLint peuvent être directement intégrés dans Atom.io.
+            Il faut pour cela installer les plugins : linter et linter-eslint.
+          </p>
+        </section>
+
+      </div>
+
+    </div>
+
+    <script src="reveal.js/lib/js/head.min.js"></script>
+    <script src="reveal.js/js/reveal.js"></script>
+
+    <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        lideNumber: true,
+        slideNumber: 'c/t',
+
+        transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: 'reveal.js/plugin/zoom-js/zoom.js', async: true },
+          { src: 'reveal.js/plugin/notes/notes.js', async: true }
+        ]
+      });
+
+    </script>
+
+  </body>
+</html>

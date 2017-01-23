@@ -1,0 +1,143 @@
+
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>Présentation Angular</title>
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+    <link rel="stylesheet" href="reveal.js/css/reveal.css">
+    <link rel="stylesheet" href="reveal.js/css/theme/black.css" id="theme">
+
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="reveal.js/lib/css/zenburn.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'reveal.js/css/print/pdf.css' : 'reveal.js/css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="reveal">
+
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+        <section>
+          <h1>Contrôleurs</h1>
+          <p>
+            <a href="https://docs.angularjs.org/guide/controller">https://docs.angularjs.org/guide/controller</a>
+          </p>
+        </section>
+
+        <section>
+          <h2>Les contrôleurs - 1</h2>
+          <p>La méthode <code>.controller()</code> permet d'enrichir un module Angular avec un nouveau contrôleur.</p>
+          <p>Quand un nouveau contrôleur est instancié, un nouvel objet <code>$scope</code> est créé puis injecté dans le contrôleur.</p>
+          <pre><code class="hljs" data-trim>
+var cra = angular.module('cra', []);
+cra.controller('Page1Controller', ['$scope', function($scope) {
+}]);
+          </code></pre>
+        </section>
+
+        <section>
+          <h2>Les contrôleurs - 2</h2>
+          <p>Ils permettent d'initialiser l'état de l'objet <code>$scope</code></p>
+          <pre><code class="hljs" data-trim>
+var cra = angular.module('cra', []);
+cra.controller('Page1Controller', ['$scope', function($scope) {
+  $scope.dates = ['2016/03/10', '2016/03/11', '2016/03/12'];
+  $scope.now = new Date();
+}]);
+          </code></pre>
+        </section>
+
+        <section>
+          <h2>Les contrôleurs - 3</h2>
+          <p>Les propriétés et méthodes de l'objet <code>$scope</code> sont accessibles depuis le template :</p>
+          <pre><code class="hljs" data-trim>
+&lt;div ng-controller=&quot;Page1Controller&quot;&gt;
+  {{dates}}
+  {{now}}
+&lt;/div&gt;
+          </code></pre>
+        </section>
+
+        <section>
+          <h2>Les contrôleurs - 4</h2>
+          <p>Ils permettent aussi de définir du comportement</p>
+          <pre><code class="hljs" data-trim>
+var myApp = angular.module('myApp',[]);
+
+myApp.controller('DoubleController', ['$scope', function($scope) {
+  $scope.double = function(value) { return value * 2; };
+}]);
+          </code></pre>
+          <pre><code class="hljs" data-trim>
+&lt;div ng-controller=&quot;DoubleController&quot;&gt;
+  Two times &lt;input ng-model=&quot;num&quot;&gt; equals {{ double(num) }}
+&lt;/div&gt;
+          </code></pre>
+        </section>
+
+        <section>
+          <h2>Les contrôleurs - Héritage</h2>
+          <p>
+            <a href="https://docs.angularjs.org/guide/controller#scope-inheritance-example">
+              https://docs.angularjs.org/guide/controller#scope-inheritance-example
+            </a>
+          </p>
+        </section>
+
+      </div>
+
+    </div>
+
+    <script src="reveal.js/lib/js/head.min.js"></script>
+    <script src="reveal.js/js/reveal.js"></script>
+
+    <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        lideNumber: true,
+        slideNumber: 'c/t',
+
+        transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: 'reveal.js/plugin/zoom-js/zoom.js', async: true },
+          { src: 'reveal.js/plugin/notes/notes.js', async: true }
+        ]
+      });
+
+    </script>
+
+  </body>
+</html>

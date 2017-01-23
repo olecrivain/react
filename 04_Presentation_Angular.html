@@ -1,0 +1,233 @@
+
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>Présentation Angular</title>
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+    <link rel="stylesheet" href="reveal.js/css/reveal.css">
+    <link rel="stylesheet" href="reveal.js/css/theme/black.css" id="theme">
+
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="reveal.js/lib/css/zenburn.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'reveal.js/css/print/pdf.css' : 'reveal.js/css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="reveal">
+
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+        <section>
+          <h1>Présentation du framework</h1>
+        </section>
+
+        <section>
+          <h2>Historique de l'écosystème JavaScript</h2>
+          <ul>
+            <li>Avant 2005 : Pas de framework, difficile de gérer les différences entre navigateurs, pas d'outillage.</li>
+            <li>2005 : <a href="https://jquery.com/">jQuery</a>. Efface les différences entre navigateurs. Manipulation du DOM simplifiée.</li>
+            <li>2010 : <a href="https://angularjs.org/">Angular</a>. Simplifie grandement le dev d'application type SPA.</li>
+            <li>2013 : <a href="https://facebook.github.io/react/">React</a>. Orienté composant.</li>
+            <li>2016? : <a href="https://angular.io/">Angular 2</a>. Très différent de la v1. Orienté composant, Typescript...</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Structure type d'un projet Angular - 1</h2>
+          <p>Classé par type.</p>
+          <pre><code class="hljs" data-trim>
+├── app
+│   ├── controller
+│   │   ├── page_1.js
+│   ├── views
+│   │   ├── page_1.html
+│   ├── css
+│   │   ├── styles.css
+│   ├── app.js
+├── .eslintrc.js
+├── bower.json
+├── package.json
+├── index.html
+          </code></pre>
+        </section>
+
+        <section>
+          <h2>Structure type d'un projet Angular - 2</h2>
+          <p>Orienté composant. C'est la structure recommendée.</p>
+          <pre><code class="hljs" data-trim>
+├── app
+│   ├── components
+│   │   ├── page_1
+│   │   │   ├── page_1.js
+│   │   │   ├── page_1.html
+│   │   │   ├── page_1.css
+│   ├── services
+│   ├── app.js
+├── .eslintrc.js
+├── bower.json
+├── package.json
+├── index.html
+          </code></pre>
+        </section>
+
+        <section>
+          <h2>.eslintrc.js</h2>
+          <pre><code class="hljs" data-trim>
+module.exports = {
+  "env": {
+    "browser": true,
+  },
+  "extends": "angular",
+  "rules": {
+    "indent": [ "error", 2 ],
+    "quotes": [ "error", "single"],
+    "semi": [ "error", "always" ],
+    "no-console": 0,
+    "angular/controller-as": 0,
+    "angular/di": 0
+  }
+};
+          </code></pre>
+        </section>
+
+        <section>
+          <h2>bower.json</h2>
+          <pre><code class="hljs" data-trim>
+{
+  "name": "formation-demo",
+  "dependencies": {
+  }
+}
+          </code></pre>
+          <p>Utilisation :</p>
+          <pre><code class="hljs" data-trim>
+$ npm install -g bower
+$ bower install angular --save
+          </code></pre>
+        </section>
+
+        <section>
+          <h2>package.json</h2>
+          <pre><code class="hljs" data-trim>
+{
+  "name": "formation-demo",
+  "version": "0.0.0",
+  "scripts": {
+    "start": "http-server -p 9000"
+  },
+  "repository": {},
+  "devDependencies": {
+    "eslint": "^2.3.0",
+    "eslint-config-angular": "^0.5.0",
+    "eslint-plugin-angular": "^1.0.0",
+    "http-server": "^0.8.5"
+  }
+}
+          </code></pre>
+          <p>Utilisation :</p>
+          <pre><code class="hljs" data-trim>
+$ npm install
+$ npm start
+          </code></pre>
+        </section>
+
+        <section>
+          <h2>app/app.js</h2>
+          <p>Initialisation du module Angular de l'application "cra".</p>
+          <pre><code class="hljs" data-trim>
+angular.module('cra', []);
+          </code></pre>
+        </section>
+
+        <section>
+          <h2>Le contrôleur app/page_1/page_1.js</h2>
+          <pre><code class="hljs" data-trim>
+angular.module('cra').controller('Page1Controller', ['$scope', function($scope) {
+
+  $scope.name = 'Olivier';
+
+}]);
+          </code></pre>
+        </section>
+
+        <section>
+          <h2>Le template index.html</h2>
+          <pre><code class="hljs" data-trim>
+&lt;!doctype html&gt;
+&lt;html ng-app=&quot;cra&quot;&gt;
+  &lt;head&gt;
+    &lt;script src=&quot;bower_components/angular/angular.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;app/app.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;app/page_1/page_1.js&quot;&gt;&lt;/script&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;div ng-controller=&quot;Page1Controller&quot;&gt;
+      Hello {{name}}!
+    &lt;/div&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+          </code></pre>
+        </section>
+
+        <section>
+          <h2>Exercice</h2>
+          <p>Mise en place du projet Angular avec npm, bower et eslint.</p>
+        </section>
+
+      </div>
+
+    </div>
+
+    <script src="reveal.js/lib/js/head.min.js"></script>
+    <script src="reveal.js/js/reveal.js"></script>
+
+    <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        lideNumber: true,
+        slideNumber: 'c/t',
+
+        transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: 'reveal.js/plugin/zoom-js/zoom.js', async: true },
+          { src: 'reveal.js/plugin/notes/notes.js', async: true }
+        ]
+      });
+
+    </script>
+
+  </body>
+</html>
