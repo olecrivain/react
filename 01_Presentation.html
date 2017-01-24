@@ -39,84 +39,18 @@
       <!-- Any section element inside of this container is displayed as a slide -->
       <div class="slides">
         <section>
-          <h1>Filtres</h1>
-          <p>
-            <a href="https://docs.angularjs.org/guide/filter">
-              https://docs.angularjs.org/guide/filter
-            </a>
-          </p>
+          <h1>Présentation du framework</h1>
         </section>
 
         <section>
-          <h2>Utilisation dans les templates</h2>
-          <pre><code class="hljs" data-trim>
-{{ expression | filter }}
-{{ expression | filter1 | filter2 | ... }}
-{{ expression | filter:argument1:argument2:... }}
-          </code></pre>
-        </section>
-
-        <section>
-          <h2>Filtres natifs</h2>
+          <h2>Historique de l'écosystème JavaScript</h2>
           <ul>
-            <li>currency</li>
-            <li>date</li>
-            <li>filter</li>
-            <li>json</li>
-            <li>limitTo</li>
-            <li>lowercase</li>
-            <li>number</li>
-            <li>orderBy</li>
-            <li>uppercase</li>
+            <li>Avant 2005 : Pas de framework, difficile de gérer les différences entre navigateurs, pas d'outillage.</li>
+            <li>2005 : <a href="https://jquery.com/">jQuery</a>. Efface les différences entre navigateurs. Manipulation du DOM simplifiée.</li>
+            <li>2010 : <a href="https://angularjs.org/">Angular</a>. Simplifie grandement le dev d'application type SPA.</li>
+            <li>2013 : <a href="https://facebook.github.io/react/">React</a>. Orienté composant.</li>
+            <li>2016? : <a href="https://angular.io/">Angular 2</a>. Très différent de la v1. Orienté composant, Typescript...</li>
           </ul>
-        </section>
-
-        <section>
-          <h2>Exemples</h2>
-          <pre><code class="hljs" data-trim>
-{{ "abc" | uppercase }} --> "ABC"
-{{ ['aa', 'bb', 'cc'] | filter:'a' }} --> ['aa']
-{{ user | json }}
-          </code></pre>
-        </section>
-
-        <section>
-          <h2>Utilisation dans un contrôleur</h2>
-          <p>
-            Possible, même si rarement utilisé.
-          </p>
-          <pre><code class="hljs" data-trim>
-
-app.controller('FilterController', ['filterFilter', function(filterFilter) {
-  this.array = [
-    {name: 'Tobias'},
-    {name: 'Jeff'},
-    {name: 'Brian'}
-  ];
-  this.filteredArray = filterFilter(this.array, 'a');
-}]);
-          </code></pre>
-        </section>
-
-        <section>
-          <h2>Créer un filtre</h2>
-          <pre><code class="hljs" data-trim>
-app.filter('monfiltre', function() {
-  return function(input, uppercase) {
-    input = input || '';
-    var out = "";
-    for (var i = 0; i < input.length; i++) {
-      out = input.charAt(i) + out;
-    }
-    if (uppercase) {
-      out = out.toUpperCase();
-    }
-    return out;
-  };
-})
-{{ "abc" | monfiltre }}  --> ???
-{{ "def" | monfiltre:true }} --> ???
-          </code></pre>
         </section>
 
       </div>

@@ -39,70 +39,18 @@
       <!-- Any section element inside of this container is displayed as a slide -->
       <div class="slides">
         <section>
-          <h1>Contrôleurs</h1>
-          <p>
-            <a href="https://docs.angularjs.org/guide/controller">https://docs.angularjs.org/guide/controller</a>
-          </p>
+          <h1>Présentation du framework</h1>
         </section>
 
         <section>
-          <h2>Les contrôleurs - 1</h2>
-          <p>La méthode <code>.controller()</code> permet d'enrichir un module Angular avec un nouveau contrôleur.</p>
-          <p>Quand un nouveau contrôleur est instancié, un nouvel objet <code>$scope</code> est créé puis injecté dans le contrôleur.</p>
-          <pre><code class="hljs" data-trim>
-var cra = angular.module('cra', []);
-cra.controller('Page1Controller', ['$scope', function($scope) {
-}]);
-          </code></pre>
-        </section>
-
-        <section>
-          <h2>Les contrôleurs - 2</h2>
-          <p>Ils permettent d'initialiser l'état de l'objet <code>$scope</code></p>
-          <pre><code class="hljs" data-trim>
-var cra = angular.module('cra', []);
-cra.controller('Page1Controller', ['$scope', function($scope) {
-  $scope.dates = ['2016/03/10', '2016/03/11', '2016/03/12'];
-  $scope.now = new Date();
-}]);
-          </code></pre>
-        </section>
-
-        <section>
-          <h2>Les contrôleurs - 3</h2>
-          <p>Les propriétés et méthodes de l'objet <code>$scope</code> sont accessibles depuis le template :</p>
-          <pre><code class="hljs" data-trim>
-&lt;div ng-controller=&quot;Page1Controller&quot;&gt;
-  {{dates}}
-  {{now}}
-&lt;/div&gt;
-          </code></pre>
-        </section>
-
-        <section>
-          <h2>Les contrôleurs - 4</h2>
-          <p>Ils permettent aussi de définir du comportement</p>
-          <pre><code class="hljs" data-trim>
-var myApp = angular.module('myApp',[]);
-
-myApp.controller('DoubleController', ['$scope', function($scope) {
-  $scope.double = function(value) { return value * 2; };
-}]);
-          </code></pre>
-          <pre><code class="hljs" data-trim>
-&lt;div ng-controller=&quot;DoubleController&quot;&gt;
-  Two times &lt;input ng-model=&quot;num&quot;&gt; equals {{ double(num) }}
-&lt;/div&gt;
-          </code></pre>
-        </section>
-
-        <section>
-          <h2>Les contrôleurs - Héritage</h2>
-          <p>
-            <a href="https://docs.angularjs.org/guide/controller#scope-inheritance-example">
-              https://docs.angularjs.org/guide/controller#scope-inheritance-example
-            </a>
-          </p>
+          <h2>Historique de l'écosystème JavaScript</h2>
+          <ul>
+            <li>Avant 2005 : Pas de framework, difficile de gérer les différences entre navigateurs, pas d'outillage.</li>
+            <li>2005 : <a href="https://jquery.com/">jQuery</a>. Efface les différences entre navigateurs. Manipulation du DOM simplifiée.</li>
+            <li>2010 : <a href="https://angularjs.org/">Angular</a>. Simplifie grandement le dev d'application type SPA.</li>
+            <li>2013 : <a href="https://facebook.github.io/react/">React</a>. Orienté composant.</li>
+            <li>2016? : <a href="https://angular.io/">Angular 2</a>. Très différent de la v1. Orienté composant, Typescript...</li>
+          </ul>
         </section>
 
       </div>

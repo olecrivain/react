@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8">
 
-    <title>Présentation Angular</title>
+    <title>Outillage</title>
 
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -39,43 +39,79 @@
       <!-- Any section element inside of this container is displayed as a slide -->
       <div class="slides">
         <section>
-          <h1>Data Binding</h1>
+          <h1>Outillage</h1>
+        </section>
+
+        <section>
+          <h2>Node</h2>
           <p>
-            <a href="https://docs.angularjs.org/guide/databinding">https://docs.angularjs.org/guide/databinding</a>
+            Node est un interpréteur JavaScript (<a href="https://nodejs.org">https://nodejs.org</a>).
+            Il est utilisé pour exécuter du code JavaScript en dehors d'un navigateur.
           </p>
-        </section>
-
-        <section>
-          <h2>Data binding</h2>
-          <p>Angular synchronise automatiquement le modèle (JavaScript) avec la vue (DOM), et inversement.</p>
-          <p>Angular automatise les modifications dans le DOM quand le modèle est modifié.</p>
-          <p>Angular automatise les modifications dans le modèle quand la vue est modifiée.</p>
-        </section>
-
-        <section>
-          <h2>Data binding - Exemple</h2>
+          <p>
+            Il est conseillé d'installer Node avec nvm.
+          </p>
           <pre><code class="hljs" data-trim>
-&lt;div ng-app ng-init=&quot;qty=1;cost=2&quot;&gt;
-  &lt;b&gt;Invoice:&lt;/b&gt;
-  &lt;div&gt;
-    Quantity: &lt;input type=&quot;number&quot; min=&quot;0&quot; ng-model=&quot;qty&quot;&gt;
-  &lt;/div&gt;
-  &lt;div&gt;
-    Costs: &lt;input type=&quot;number&quot; min=&quot;0&quot; ng-model=&quot;cost&quot;&gt;
-  &lt;/div&gt;
-  &lt;div&gt;
-    &lt;b&gt;Total:&lt;/b&gt; {{qty * cost}}
-  &lt;/div&gt;
-&lt;/div&gt;
+$ node script.js
           </code></pre>
+        </section>
+
+        <section>
+          <h2>NPM (Node Package Manager)</h2>
           <p>
-            <a href="https://docs.angularjs.org/guide/concepts">https://docs.angularjs.org/guide/concepts</a>
+            Fourni avec Node. Il permet de :
+            <ul>
+              <li>Installer des outils exécutés par Node (ex : Grunt, eslint...)</li>
+              <li>Installer les dépendences d'un projet Node</li>
+              <li>Exécuter des scripts dans un projet Node</li>
+            </ul>
           </p>
         </section>
 
         <section>
-          <h2>Data binding</h2>
-          <p>A quoi ressemblerait l'implémentation du même écran avec jQuery?</p>
+          <h2>Editeurs</h2>
+          <p>
+            <ul>
+              <li>Sublime Text : <a href="https://www.sublimetext.com/">https://www.sublimetext.com</a></li>
+              <li>Atom.io : <a href="https://atom.io/">https://atom.io</a></li>
+              <li>Code : <a href="https://code.visualstudio.com/">https://code.visualstudio.com</a></li>
+              <li>WebStorm : <a href="https://www.jetbrains.com/webstorm/">https://www.jetbrains.com/webstorm</a></li>
+            </ul>
+          </p>
+        </section>
+
+        <section>
+          <h2>Linter JS</h2>
+          <p>
+            Ils permettent :
+            <ul>
+              <li>d'identifier des patterns de code dangereux</li>
+              <li>d'eviter certaines typos</li>
+              <li>de rendre le code plus consistent (dans le cas d'eslint)</li>
+            </ul>
+          </p>
+        </section>
+
+        <section>
+          <h2>Linter JS - Plusieurs solutions</h2>
+          <p>
+            <ul>
+              <li>ESLint : le plus récent (celui qu'il faut utiliser)</li>
+              <li>JSLint</li>
+              <li>JSHint : le premier</li>
+            </ul>
+          </p>
+        </section>
+
+        <section>
+          <h2>create-react-app</h2>
+          <p>
+            Initialise un projet React :
+          </p>
+          <ul>
+            <li>conforme aux best practices</li>
+            <li>avec un build webpack préconfiguré</li>
+          </ul>
         </section>
 
       </div>

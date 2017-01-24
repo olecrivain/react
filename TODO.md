@@ -4,13 +4,17 @@ Plan
 1) Introduction
 	Historique
 	Positionnement / vs autres fwk
+	Présentation de React
 
 2) Outillage, Setup
 	outils: éditeur: "Code", chrome + devtools, nvm/node/npm, une console
 	build
 	create-react-app
 
+
+Exercice :
 4) Hello world (avec un composant fonctionnel)
+
 
 5) Ecrire du html avec jsx
 	render
@@ -27,9 +31,11 @@ Plan
 6) Cycle de vie
 
 7) Composition (Créer un composant à partir d'autres composants)
-
 	Search
-		SearchResultFiltered
+		FilteredResultList
+			Filter
+			ResultList
+				Result
 
 
 
@@ -40,7 +46,8 @@ Plan
 8) Evenements (onClick, onMouseOver...)
 
 9) Initialiser un composant à partir d'un webservice
-	componentWillMount
+	componentDidMount
+	https://github.com/arunoda/react-komposer
 
 10) React-router
 	npm install --save react-router
