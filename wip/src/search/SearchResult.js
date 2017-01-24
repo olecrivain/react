@@ -13,4 +13,9 @@ class SearchResult extends Component {
   }
 }
 
+SearchResult.propTypes = {
+  title: React.PropTypes.string.isRequired,
+  content: React.PropTypes.string.isRequired
+}
+
 export default SearchResult;

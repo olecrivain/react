@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import './SearchFilters.css';
+import './SearchFilter.css';
 
-class SearchFilters extends Component {
+class SearchFilter extends Component {
   render() {
     let voyageTypes = this.props.voyageTypes;
     return (
-      <div className="SearchFilters left">
+      <div className="SearchFilter left">
         <div>
           <h3>Type de voyage</h3>
           <div>
@@ -18,11 +18,10 @@ class SearchFilters extends Component {
               );
             })}
           </div>
-          <h3>Départ</h3>
+          <h3>Ville de départ</h3>
           <div>
             <label>
-              Départ:
-              <input type="text" value={this.props.depart} onChange={this.props.changeDepart} />
+              Ville : <input type="text" value={this.props.depart} onChange={this.props.changeDepart} />
             </label>
           </div>
         </div>
@@ -31,4 +30,4 @@ class SearchFilters extends Component {
   }
 }
 
-export default SearchFilters;
+export default SearchFilter;

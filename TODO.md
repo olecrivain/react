@@ -6,7 +6,7 @@ Plan
 	Positionnement / vs autres fwk
 
 2) Outillage, Setup
-	outils: éditeur: "Code", chrome + devtools, npm 6+, une console
+	outils: éditeur: "Code", chrome + devtools, nvm/node/npm, une console
 	build
 	create-react-app
 

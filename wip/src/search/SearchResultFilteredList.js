@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import SearchFilters from './SearchFilters.js';
+import SearchFilter from './SearchFilter.js';
 import SearchResultList from './SearchResultList.js';
 
 // TODO: webservice (Axios ou fetch)
@@ -71,7 +71,7 @@ class SearchResultFilteredList extends Component {
   render() {
     return (
       <div className="SearchResultFilteredList">
-        <SearchFilters voyageTypes={this.state.voyageTypes} changeVoyageTypes={this.changeVoyageTypes} depart={this.state.depart} changeDepart={this.changeDepart}/>
+        <SearchFilter voyageTypes={this.state.voyageTypes} changeVoyageTypes={this.changeVoyageTypes} depart={this.state.depart} changeDepart={this.changeDepart}/>
         <SearchResultList results={this.state.filteredResults}/>
       </div>
     );
