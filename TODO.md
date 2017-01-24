@@ -10,10 +10,7 @@ Plan
 	build
 	create-react-app
 
-3) Les composants React
-	composant fonctionnel
-
-4) Hello world
+4) Hello world (avec un composant fonctionnel)
 
 5) Ecrire du html avec jsx
 	render
@@ -24,8 +21,10 @@ Plan
 		boucles
 	css
 
+6) Les composants React
 6) Initialiser un composant avec "props"
 6 bis) Typer un composant avec "propTypes"
+6) Cycle de vie
 
 7) Composition (Créer un composant à partir d'autres composants)
 
@@ -33,13 +32,15 @@ Plan
 
 
 
-7) Gestion de l'état d'un composant
+7) Etat d'un composant
 
-8) Gestion des évenements (onClick, onMouseOver...)
+8) Evenements (onClick, onMouseOver...)
 
 9) Initialiser un composant à partir d'un webservice
 
 10) React-router
+	npm install --save react-router
+	results -> /results/1
 
 11) Tests unitaires
 	Idéalement, le code a tester est sorti des composants
