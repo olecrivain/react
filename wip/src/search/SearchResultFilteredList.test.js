@@ -1,7 +1,7 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { shallow } from 'enzyme';
 
-import { filterResultsByDepart, filterResultsByVoyageType } from './SearchResultService.js';
+import SearchResultFilteredList from './SearchResultFilteredList.js';
 
 const ALL_RESULTS = [
   { title: 'T1', content: 'blabla', depart: 'Paris', type: 'club' },
@@ -11,7 +11,12 @@ const ALL_RESULTS = [
   { title: 'T5', content: 'blabla', depart: 'Lyon', type: 'club' }
 ];
 
-it('filtrage des résultats par ville de départ', () => {
-	expect(filterResultsByDepart(ALL_RESULTS, 'Cherbourg').length).toEqual(0);
-	expect(filterResultsByDepart(ALL_RESULTS, 'Paris').length).toEqual(1);
+const wrapper = shallow(<SearchResultFilteredList />);
+
+it('filtre les résultats par ville de départ : Paris', () => {
+	expect(wrapper.instance().filterResultsByDepart(ALL_RESULTS, 'Paris').length).toEqual(1);
+});
+
+it('filtre les résultats par ville de départ : Cherbourg', () => {
+	expect(wrapper.instance().filterResultsByDepart(ALL_RESULTS, 'Cherbourg').length).toEqual(0);
 });

@@ -45,3 +45,5 @@ Plan
 	Idéalement, le code a tester est sorti des composants
 	Jest
 	https://github.com/airbnb/enzyme
+		npm i --save-dev enzyme
+		npm i --save-dev react-addons-test-utils
