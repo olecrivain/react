@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import SearchResultFilteredList from './SearchResultFilteredList.js';
+import SearchFilteredResultList from './SearchFilteredResultList.js';
 
 const ALL_RESULTS = [
   { title: 'T1', content: 'blabla', depart: 'Paris', type: 'club' },
@@ -11,7 +11,7 @@ const ALL_RESULTS = [
   { title: 'T5', content: 'blabla', depart: 'Lyon', type: 'club' }
 ];
 
-const wrapper = shallow(<SearchResultFilteredList />);
+const wrapper = shallow(<SearchFilteredResultList />);
 
 it('filtre les résultats par ville de départ : Paris', () => {
 	expect(wrapper.instance().filterResultsByDepart(ALL_RESULTS, 'Paris').length).toEqual(1);

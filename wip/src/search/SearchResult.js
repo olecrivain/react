@@ -7,7 +7,7 @@ class SearchResult extends Component {
     return (
       <div className="SearchResult">
         <h3>
-          <Link to={'/results/' + this.props.title}>{this.props.title}</Link>
+          <Link to={'/voyages/' + this.props.title}>{this.props.title}</Link>
         </h3>
         <div>{this.props.content}</div>
         <div>{this.props.depart} / {this.props.type}</div>

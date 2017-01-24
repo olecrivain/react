@@ -28,6 +28,9 @@ Plan
 
 7) Composition (Créer un composant à partir d'autres composants)
 
+	Search
+		SearchResultFiltered
+
 
 
 
@@ -37,10 +40,12 @@ Plan
 8) Evenements (onClick, onMouseOver...)
 
 9) Initialiser un composant à partir d'un webservice
+	componentWillMount
 
 10) React-router
 	npm install --save react-router
 	results -> /results/1
+	association url / component tree
 
 11) Tests unitaires
 	Idéalement, le code a tester est sorti des composants
