@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import SearchFilter from './SearchFilter.js';
 import SearchResultList from './SearchResultList.js';
+import { filterResultsByDepart, filterResultsByVoyageType } from './SearchResultService.js';
 
 // TODO: webservice (Axios ou fetch)
 const ALL_RESULTS = [
@@ -31,16 +32,8 @@ class SearchResultFilteredList extends Component {
   changeDepart(event) {
     this.setState({
       depart: event.target.value,
-      filteredResults: this.filterResultsByDepart(this.filterResultsByVoyageType(ALL_RESULTS), event.target.value)
+      filteredResults: filterResultsByDepart(filterResultsByVoyageType(ALL_RESULTS, this.state.voyageTypes), event.target.value)
     })
-  }
-
-  filterResultsByDepart(results, depart) {
-    if (depart) {
-      return results.filter(result => result.depart.indexOf(depart) >= 0);
-    } else {
-      return results;
-    }
   }
 
   changeVoyageTypes(type) {
@@ -51,21 +44,9 @@ class SearchResultFilteredList extends Component {
       }
       this.setState({
         voyageTypes: this.state.voyageTypes,
-        filteredResults: this.filterResultsByDepart(this.filterResultsByVoyageType(ALL_RESULTS), this.state.depart)
+        filteredResults: filterResultsByDepart(filterResultsByVoyageType(ALL_RESULTS, this.state.voyageTypes), this.state.depart)
       })
     };
-  }
-
-  filterResultsByVoyageType(results) {
-    let checkedVoyageTypes = this.state.voyageTypes
-      .filter(voyageType => voyageType.checked)
-      .map(voyageType => voyageType.type);
-
-    if (checkedVoyageTypes.length > 0) {
-      return results.filter(result => checkedVoyageTypes.includes(result.type));
-    } else {
-      return results;
-    }
   }
 
   render() {

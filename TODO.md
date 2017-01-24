@@ -40,3 +40,8 @@ Plan
 9) Initialiser un composant à partir d'un webservice
 
 10) React-router
+
+11) Tests unitaires
+	Idéalement, le code a tester est sorti des composants
+	Jest
+	https://github.com/airbnb/enzyme

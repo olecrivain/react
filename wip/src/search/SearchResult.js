@@ -7,7 +7,7 @@ class SearchResult extends Component {
       <div className="SearchResult">
         <h3>{this.props.title}</h3>
         <div>{this.props.content}</div>
-        <div>{this.props.depart}</div>
+        <div>{this.props.depart} / {this.props.type}</div>
       </div>
     );
   }
