@@ -18,10 +18,10 @@ Introduction
   * ELM: http://elm-lang.org/
 * Le projet React:
   * Environ 1 nouvelle version majeur tous les 10 mois
-* Des releases mineurs tous les 2 mois
-* Les changements non rétro-compatible sont rares
-* Utilisé en prod chez facebook
-* 60k étoiles sur github
+  * Des releases mineurs tous les 2 mois
+  * Les changements non rétro-compatible sont rares
+  * Utilisé en prod chez facebook
+  * 60k étoiles sur github
 
 
 Outillage, Setup
