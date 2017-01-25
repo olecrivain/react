@@ -3,44 +3,46 @@ Plan
 
 Introduction
   Historique
-	2005: jQuery (Efface les différences entre navigateurs. Manipulation du DOM simplifiée)
-	2010: Angular (Simplifie grandement le dev d'application type SPA)
-	2013: React (Orienté composant)
+  2005: jQuery (Efface les différences entre navigateurs. Manipulation du DOM simplifiée)
+  2010: Angular (Simplifie grandement le dev d'application type SPA)
+  2013: React (Orienté composant)
     2016: Angular 2
   Positionnement / vs autres framwork
     "Librairie pour construire des interfaces utilisateurs"
-	Fait bien moins de chose qu'Angular ou Ember (pas de routing, pas de client http, repose plus sur les fonctionnalités du langage js)
-	Alternatives:
-	  Vue.js: https://vuejs.org/
-	  Riot: http://riotjs.com/
-	  ELM: http://elm-lang.org/
+  Fait bien moins de chose qu'Angular ou Ember (pas de routing, pas de client http, repose plus sur les fonctionnalités du langage js)
+  Alternatives:
+    Vue.js: https://vuejs.org/
+    Riot: http://riotjs.com/
+    ELM: http://elm-lang.org/
   Le projet React:
     Environ 1 nouvelle version majeur tous les 10 mois
-	Des releases mineurs tous les 2 mois
-	Les changements non rétro-compatible sont rares
-	Utilisé en prod chez facebook
-	Presque 60k étoiles sur github
+  Des releases mineurs tous les 2 mois
+  Les changements non rétro-compatible sont rares
+  Utilisé en prod chez facebook
+  60k étoiles sur github
 
 --------------------------------------------------------------------------------
 
 Outillage, Setup
-	éditeur:
-	  Code
-	  Atom.io
-	  Sublimetext
-	chrome + devtools
-	nvm/node/npm
-	  nvm pour gérer simplement plusieurs versions de node
-	  node: l'outillage web est presque toujours écrit en JavaScript et requiere node pour être éxecuté
-	  npm pour charger les dépendances d'un projet et pour jouer les "npm scripts"
-	un shell pour lancer les commandes npm
-	build:
-	  webpack
-	  browserify
-	create-react-app
-	  pour initialiser un projet react avec un build pret à l'emploi
-	  pousse les bonnes pratiques React
-	  eject
+  éditeur:
+    Code
+    Atom.io
+    Sublimetext
+  chrome + devtools
+  nvm/node/npm
+    nvm pour gérer plusieurs versions de node
+    node: l'outillage web est presque toujours écrit en JavaScript et requière node pour être éxecuté (grunt, gulp, webpack, less...)
+    npm pour charger les dépendances d'un projet et pour jouer les "npm scripts"
+  un shell pour lancer les commandes npm
+  build:
+    webpack
+    browserify
+    babel (compilation JSX, ES6/ES2015: https://kangax.github.io/compat-table/es6/)
+      compile JavaScript ECMAScript 5, compatible avec la plupart des navigateurs
+  create-react-app
+    pour initialiser un projet react avec un build pret à l'emploi
+    pousse les bonnes pratiques React
+    eject
 
 
 Exercice :
@@ -56,14 +58,20 @@ https://facebook.github.io/react/docs/introducing-jsx.html
 https://facebook.github.io/react/docs/jsx-in-depth.html
   Expression: {...}
     {ma_variable}
-	{ 1 + 2 + 3 }
+    { 1 + 2 + 3 }
   attributs: <div key={i}>
-  condition: {}
+  condition:
+    { a ? 'ok' : 'ko' }
+    { null }
+    { type == 'club' ? this.renderClub() : rthis.enderSejour() }
+    { this.['render'+type]() }
   boucles: {uneList.map((elm, i) => ...)}
-  Les blocs JSX sont des expressions
+  Les blocs JSX sont des expressions:
+    let a = <span>bonjour</span>;
+    return <div>{a}</div>;
 
 Exercice :
-1) Recréer un bloc résultat de recherche
+1) Créer le bloc résultat de recherche
 2) Ajouter des règles CSS
 
 --------------------------------------------------------------------------------
@@ -83,25 +91,55 @@ Exercice:
 
 
 --------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 
 
 Etat d'un composant et cycle de vie
+https://facebook.github.io/react/docs/state-and-lifecycle.html
+https://facebook.github.io/react/docs/react-component.html#the-component-lifecycle
 
-Evenements (onClick, onMouseOver, onChange...)
+  Comment faire un composant qui affiche l'heure?
 
-Exercice: Implémenter le filtrage des résultats
+  constructor(props) {
+    super(props);
+    this.state = {date: new Date()};
+  }
+
+  setState({...})
+
+--------------------------------------------------------------------------------
+
+Evénements (onClick, onMouseOver, onChange...)
+https://facebook.github.io/react/docs/handling-events.html
+https://facebook.github.io/react/docs/events.html
+  handleEvent(event) { ... }
+  <button onClick={handleEvent}>
+  <input type="text" onChange={handleEvent}>
+
+Exercice 1:
+1) Faire un composant affichant un bouton et un compteur
+2) A chaque clique sur le bouton, incrémenter le compteur
+
+Exercice 2: Implémenter le filtrage des résultats
 1) Déterminer où gérer l'état dans l'arbre des composants
 2) Revoir le découpage si nécessaire
 
 --------------------------------------------------------------------------------
 
 Initialiser un composant à partir d'un webservice
-  Dans la methode componentDidMount
+  Rappel API Promise (then, catch, all)
+  Methode componentDidMount
+  componentDidMount() {
+    fetch(url).then(response) => {
+      this.setState({ ... });
+    }
+  }
   Une fois reçu, les données sont stockées dans l'état
   Client HTTP:
     fetch
-	axios
-  Une option pour éviter de mettre ces données l'état: https://github.com/arunoda/react-komposer
+    axios
+  Une alternative pour éviter de mettre les données l'état: https://github.com/arunoda/react-komposer
 
 Exercice:
 1) Integrer un WS
@@ -109,17 +147,18 @@ Exercice:
 
 --------------------------------------------------------------------------------
 
-Routing avec React-router: https://github.com/ReactTraining/react-router
+Routing avec React-router
+https://github.com/ReactTraining/react-router
   Permet d'associer une url à un état de l'application React
   Rend l'application bookmarquable
   Gère l'historique, le retour arrière
-  La naviguation imbriquée
-  Gestion des liens
+  La naviguation imbriquée ({this.props.children})
+  Gestion des liens (<Link to="">lien</Link>)
   Configuration des routes: https://github.com/ReactTraining/react-router/blob/master/docs/guides/RouteConfiguration.md
   API: https://github.com/ReactTraining/react-router/blob/master/docs/API.md
 
 Exercice:
-1) Créer la route "/results" qui doit amener sur notre page de résultat
+1) Créer la route "/results" qui doit amener sur notre page de résultats
 2) Créer un composant Voyage qui affiche le détail d'un voyage
 3) Créer la route "/voyage/:id" qui doit amener sur le composant voyage
 4) Créer les liens de la page résultat vers les voyages
