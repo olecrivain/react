@@ -227,8 +227,12 @@ https://github.com/ReactTraining/react-router
 * Gère l'historique, le retour arrière
 * La naviguation imbriquée ({this.props.children})
 * Composant Link: `<Link to="/page_1">lien</Link>`
+
 * Configuration des routes
   ```javascript
+  import { Router, Route } from 'react-router'
+  import { browserHistory } from 'react-router'
+
   ReactDOM.render(
     <Router history={browserHistory}>
       <Route path="/" component={App}>
@@ -238,7 +242,9 @@ https://github.com/ReactTraining/react-router
     </Router>,
     document.getElementById('root')
   );
-  ``` https://github.com/ReactTraining/react-router/blob/master/docs/guides/RouteConfiguration.md
+  ```
+  https://github.com/ReactTraining/react-router/blob/master/docs/guides/RouteConfiguration.md
+*  history: browserHistory, hashHistory
 * API: https://github.com/ReactTraining/react-router/blob/master/docs/API.md
 
 ### Exercice
