@@ -209,8 +209,8 @@ Initialiser un composant à partir d'un webservice
   ```
 * Une fois reçu, les données sont stockées dans l'état du composant, et le composant se met jour avec ces données.
 * Client HTTP:
-    API fetch https://developer.mozilla.org/fr/docs/Web/API/Fetch_API/Using_Fetch
-    Axios: https://github.com/mzabriskie/axios
+  * API fetch https://developer.mozilla.org/fr/docs/Web/API/Fetch_API/Using_Fetch
+  * Axios: https://github.com/mzabriskie/axios
 * Une alternative pour éviter de mettre les données l'état: https://github.com/arunoda/react-komposer
 
 ### Exercice
