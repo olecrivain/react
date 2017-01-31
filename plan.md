@@ -227,7 +227,6 @@ https://github.com/ReactTraining/react-router
 * Gère l'historique, le retour arrière
 * La naviguation imbriquée ({this.props.children})
 * Composant Link: `<Link to="/page_1">lien</Link>`
-
 * Configuration des routes
   ```javascript
   import { Router, Route } from 'react-router'
@@ -259,7 +258,7 @@ Tests unitaires
 
 https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#running-tests
 https://facebook.github.io/jest/
-* Jest est inclus avec create-reacy-app
+* Jest est inclus avec create-react-app
 * Idéalement, le code a tester est sorti des composants
 * Si vous devez instancier des composants React dans vos tests: https://github.com/airbnb/enzyme (par AirBnb)
   * `npm install --save-dev enzyme`
