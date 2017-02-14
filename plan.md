@@ -281,18 +281,3 @@ https://github.com/ReactTraining/react-router
 2. Créer un composant Voyage qui affiche le détail d'un voyage
 3. Créer la route "/voyage/:id" qui doit amener sur le composant voyage
 4. Créer les liens de la page résultat vers les voyages
-
-
-Tests unitaires
----------------
-
-https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#running-tests
-https://facebook.github.io/jest/
-* Jest est inclus avec create-react-app
-* Idéalement, le code a tester est sorti des composants
-* Si vous devez instancier des composants React dans vos tests: https://github.com/airbnb/enzyme (par AirBnb)
-  * `npm install --save-dev enzyme`
-  * `npm install --save-dev react-addons-test-utils`
-
-### Exercice
-1. Tester les méthodes de filtrage
