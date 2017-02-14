@@ -217,14 +217,44 @@ Initialiser un composant à partir d'un webservice
 1. Integrer un WS
 2. Ajouter un indicateur de chargement
 
+
+Tests unitaires
+---------------
+
+Avec create-react-app: https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#running-tests
+
+Jest: https://facebook.github.io/jest/
+
+* Tests unitaires : Tests exécutés sans navigateur
+* Tests end 2 end : Tests exécutés dans un navigateur (généralement avec selenium-webdriver: http://seleniumhq.github.io/selenium/docs/api/javascript/index.html)
+* Jest est inclus avec create-react-app
+* Idéalement, le code a tester est extrait des composants
+* Si vous devez instancier des composants React dans vos tests: https://github.com/airbnb/enzyme (par AirBnb)
+  * `npm install --save-dev enzyme`
+  * `npm install --save-dev react-addons-test-utils`
+  * Exemple:
+    ```javascript
+    import { shallow } from 'enzyme';
+    const wrapper = shallow(<SearchFilteredResultList />);
+
+    it('retourne vrai', () => {
+    	expect(wrapper.instance().maMethodeATester().length).toBe(true);
+    });
+    ```
+
+### Exercice
+1. Tester les méthodes de filtrage
+
+
 Routing avec React-router
 -------------------------
 
 https://github.com/ReactTraining/react-router
 
-* Permet d'associer une url à un état de l'application React
+* Comment implémenter la naviguation dnas une application React?
+* React-router permet d'associer une url à un état de l'application React
 * Rend l'application bookmarquable
-* Gère l'historique, le retour arrière
+* Gère l'historique, le retour arrière navigateur, les liens pour passer d'une vue à une autre
 * La naviguation imbriquée ({this.props.children})
 * Composant Link: `<Link to="/page_1">lien</Link>`
 * Configuration des routes
@@ -243,7 +273,7 @@ https://github.com/ReactTraining/react-router
   );
   ```
   https://github.com/ReactTraining/react-router/blob/master/docs/guides/RouteConfiguration.md
-*  history: browserHistory, hashHistory
+* history: browserHistory, hashHistory
 * API: https://github.com/ReactTraining/react-router/blob/master/docs/API.md
 
 ### Exercice
